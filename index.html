@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="topo">
+      <h1>Controle de Gastos</h1>
+      <label class="filtro">
+        Mês
+        <input type="month" id="filtro-mes">
+      </label>
+    </header>
+
+    <section class="resumo">
+      <div class="card">
+        <span>Saldo</span>
+        <strong id="saldo">R$ 0,00</strong>
+      </div>
+      <div class="card receita">
+        <span>Receitas</span>
+        <strong id="receitas">R$ 0,00</strong>
+      </div>
+      <div class="card despesa">
+        <span>Despesas</span>
+        <strong id="despesas">R$ 0,00</strong>
+      </div>
+    </section>
+
+    <section class="painel">
+      <h2 id="titulo-form">Nova transação</h2>
+      <form id="form">
+        <label>
+          Descrição
+          <input type="text" id="descricao" maxlength="60" required placeholder="Ex.: Mercado">
+        </label>
+
+        <label>
+          Valor (R$)
+          <input type="number" id="valor" min="0.01" step="0.01" required placeholder="0,00">
+        </label>
+
+        <label>
+          Tipo
+          <select id="tipo">
+            <option value="despesa">Despesa</option>
+            <option value="receita">Receita</option>
+          </select>
+        </label>
+
+        <label>
+          Categoria
+          <select id="categoria"></select>
+        </label>
+
+        <label>
+          Data
+          <input type="date" id="data" required>
+        </label>
+
+        <div class="acoes">
+          <button type="submit" id="btn-salvar">Adicionar</button>
+          <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="painel">
+      <h2>Despesas por categoria</h2>
+      <div class="grafico" hidden>
+        <canvas id="grafico"></canvas>
+      </div>
+      <div id="categorias"></div>
+    </section>
+
+    <section class="painel">
+      <h2>Transações</h2>
+      <ul id="lista"></ul>
+      <p id="vazio" class="vazio">Nenhuma transação neste mês.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="script.js"></script>
+</body>
+</html>

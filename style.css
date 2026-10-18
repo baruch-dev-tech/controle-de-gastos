@@ -1,0 +1,317 @@
+:root {
+  --bg: #f4f6f8;
+  --painel: #ffffff;
+  --texto: #1f2933;
+  --suave: #6b7785;
+  --borda: #e1e6eb;
+  --primaria: #2f6fed;
+  --receita: #1b9e5a;
+  --despesa: #d64545;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--suave);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texto);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--primaria);
+  outline-offset: 1px;
+}
+
+.filtro input {
+  width: auto;
+}
+
+/* Resumo */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card span {
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+
+.card strong {
+  font-size: 1.2rem;
+}
+
+.card.receita strong {
+  color: var(--receita);
+}
+
+.card.despesa strong {
+  color: var(--despesa);
+}
+
+.card strong.negativo {
+  color: var(--despesa);
+}
+
+/* Painéis */
+.painel {
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+/* Formulário */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--suave);
+}
+
+.acoes {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+}
+
+.acoes button {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primaria);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.acoes button:hover {
+  filter: brightness(0.92);
+}
+
+.acoes button.secundario {
+  flex: 0 0 auto;
+  padding: 11px 20px;
+  background: var(--bg);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+}
+
+.grafico {
+  position: relative;
+  height: 260px;
+  margin-bottom: 18px;
+}
+
+.btn-editar {
+  border: none;
+  background: transparent;
+  color: var(--suave);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.btn-editar:hover {
+  background: #eaf1ff;
+  color: var(--primaria);
+}
+
+select:disabled {
+  background: var(--bg);
+  color: var(--suave);
+}
+
+/* Categorias */
+.cat-linha {
+  margin-bottom: 12px;
+}
+
+.cat-linha:last-child {
+  margin-bottom: 0;
+}
+
+.cat-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.cat-barra {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.cat-barra div {
+  height: 100%;
+  background: var(--despesa);
+  border-radius: 99px;
+  transition: width 0.3s;
+}
+
+/* Lista */
+#lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.item-desc {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-meta {
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+
+.item-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.item-valor.receita {
+  color: var(--receita);
+}
+
+.item-valor.despesa {
+  color: var(--despesa);
+}
+
+.item-valor {
+  font-weight: 600;
+}
+
+.btn-excluir {
+  border: none;
+  background: transparent;
+  color: var(--suave);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.btn-excluir:hover {
+  background: #fdecec;
+  color: var(--despesa);
+}
+
+.vazio {
+  color: var(--suave);
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+}
